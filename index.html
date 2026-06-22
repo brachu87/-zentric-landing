@@ -267,7 +267,8 @@
       <a href="#funciones" class="btn btn-ghost">Funciones</a>
       <a href="#como-funciona" class="btn btn-ghost">Cómo funciona</a>
       <a href="#precios" class="btn btn-ghost">Precios</a>
-      <a href="https://crm-app-production-0669.up.railway.app/login" class="btn btn-primary">Iniciar sesión</a>
+      <a href="manual-zentric.pdf" class="btn btn-ghost" download>📄 Manual</a>
+      <a href="https://crm-app-production-0669.up.railway.app/registro" class="btn btn-primary">Empezar gratis</a>
     </div>
   </div>
 </nav>
@@ -279,10 +280,14 @@
       <div class="hero-badge">✦ Pensado para negocios argentinos</div>
       <h1>Gestioná tu negocio <em>sin complicaciones</em></h1>
       <p>Clientes, turnos, cobros, empleados y reportes en un solo lugar. Sin planillas, sin papeles, sin dolores de cabeza.</p>
-      <div class="hero-ctas">
-        <a href="https://wa.me/5491176353062?text=Hola%2C%20quiero%20suscribirme%20a%20Zentric" target="_blank" class="btn btn-accent btn-lg">Empezar ahora →</a>
-        <a href="https://crm-app-production-0669.up.railway.app/login" class="btn btn-outline btn-lg">Iniciar sesión</a>
+      <div style="display:inline-flex;align-items:center;gap:8px;background:#fef9c3;border:1px solid #fde68a;padding:6px 14px;border-radius:20px;font-size:13px;color:#92400e;margin-bottom:16px;font-weight:500">
+        ⭐ 15 días de prueba gratuita — sin tarjeta de crédito
       </div>
+      <div class="hero-ctas">
+        <a href="https://crm-app-production-0669.up.railway.app/registro" class="btn btn-accent btn-lg">Probar gratis 15 días →</a>
+        <a href="https://crm-app-production-0669.up.railway.app/api/billing/public-checkout" class="btn btn-outline btn-lg">Comprar ahora 💳</a>
+      </div>
+      <p style="font-size:12px;color:var(--ink-soft);margin-top:10px">Probá sin compromiso. Si querés seguir, pagá desde la app o directamente.</p>
     </div>
 
     <!-- App mockup -->
@@ -401,8 +406,16 @@
       <li>Acceso desde celular y computadora</li>
       <li>Soporte por WhatsApp</li>
     </ul>
-    <a href="https://wa.me/5491176353062?text=Hola%2C%20quiero%20suscribirme%20a%20Zentric" target="_blank" class="btn btn-accent btn-lg" style="width:100%;justify-content:center">Empezar ahora →</a>
-    <p class="pricing-note">Probalo sin compromiso. Cancelás cuando quieras.</p>
+    <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:10px;padding:12px 16px;margin-bottom:16px;text-align:center">
+      <div style="font-size:15px;font-weight:700;color:#15803d">🎁 15 días de prueba gratuita</div>
+      <div style="font-size:12px;color:#166534;margin-top:2px">Sin tarjeta de crédito. Cancelás en cualquier momento.</div>
+    </div>
+    <a href="https://crm-app-production-0669.up.railway.app/registro" class="btn btn-accent btn-lg" style="width:100%;justify-content:center;margin-bottom:10px">Probar gratis 15 días →</a>
+    <a href="https://crm-app-production-0669.up.railway.app/api/billing/public-checkout" class="btn btn-outline btn-lg" style="width:100%;justify-content:center;border-color:#009ee3;color:#009ee3">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M12.012 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75-4.365-9.75-9.75-9.75zm0 1.5c4.557 0 8.25 3.693 8.25 8.25s-3.693 8.25-8.25 8.25-8.25-3.693-8.25-8.25 3.693-8.25 8.25-8.25zm-1.5 4.5v3h-3v1.5h3v3h1.5v-3h3v-1.5h-3v-3h-1.5z"/></svg>
+      Comprar directamente con MercadoPago
+    </a>
+    <p class="pricing-note" style="margin-top:12px">También podés pagar desde la app, en Ajustes → Facturación.</p>
   </div>
 </section>
 
@@ -439,9 +452,10 @@
   <h2>¿Listo para ordenar tu negocio?</h2>
   <p>Probalo sin compromiso. Si tenés dudas, escribinos y te ayudamos a configurarlo.</p>
   <div class="cta-btns">
-    <a href="https://wa.me/5491176353062?text=Hola%2C%20quiero%20suscribirme%20a%20Zentric" target="_blank" class="btn btn-accent btn-lg">Contactanos →</a>
-    <a href="mailto:contacto@zentric.app" class="btn btn-outline btn-lg">Contactar</a>
+    <a href="https://crm-app-production-0669.up.railway.app/registro" class="btn btn-accent btn-lg">Probar gratis 15 días →</a>
+    <a href="https://crm-app-production-0669.up.railway.app/api/billing/public-checkout" class="btn btn-outline btn-lg" style="border-color:#009ee3;color:#009ee3">Comprar con MercadoPago 💳</a>
   </div>
+  <p style="margin-top:16px;font-size:13px;color:rgba(255,255,255,0.6)">O escribinos por <a href="https://wa.me/5491176353062" target="_blank" style="color:#fff">WhatsApp</a></p>
 </section>
 
 <!-- FOOTER -->
@@ -473,7 +487,7 @@
     <p>© 2026 Zentric. Todos los derechos reservados.</p>
     <div class="footer-links">
       <a href="https://crm-app-production-0669.up.railway.app/login">Iniciar sesión</a>
-      <a href="https://crm-app-production-0669.up.railway.app/registro">Registrarse</a>
+      <a href="https://crm-app-production-0669.up.railway.app/registro">Registrarse (15 días gratis)</a>
       <a href="mailto:contacto@zentric.app">Contacto</a>
     </div>
   </div>
