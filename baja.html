@@ -50,7 +50,7 @@
         <div id="msgBaja" class="msg"></div>
       </form>
     </div>
-    <p class="alt">También podés hacerlo escribiéndonos a <a href="mailto:contacto@gestumio.app">contacto@gestumio.app</a> o por WhatsApp al <a href="https://wa.me/5491100000000">+54 9 11 0000-0000 (a confirmar)</a>. No te pedimos ningún registro previo ni trámite adicional.</p>
+    <p class="alt">También podés hacerlo escribiéndonos a <a href="mailto:soporte@gestumio.com">soporte@gestumio.com</a> o por WhatsApp al <a href="https://wa.me/5491178236708">+54 9 11 7823-6708</a>. No te pedimos ningún registro previo ni trámite adicional.</p>
     
 <script>
 function submitLegal(tipo, formId, msgId){
@@ -65,8 +65,8 @@ function submitLegal(tipo, formId, msgId){
       var r=await fetch('https://app.gestumio.com/api/legal/'+tipo,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
       var j=await r.json().catch(function(){return {};});
       if(r.ok){ m.className='msg ok'; m.textContent='¡Listo! Recibimos tu solicitud y te vamos a contactar. También te enviamos una confirmación por email.'; f.reset(); }
-      else { m.className='msg err'; m.textContent=(j.error||'No se pudo enviar.')+' Escribinos a contacto@gestumio.app.'; }
-    }catch(err){ m.className='msg err'; m.textContent='No se pudo enviar. Escribinos a contacto@gestumio.app o por WhatsApp.'; }
+      else { m.className='msg err'; m.textContent=(j.error||'No se pudo enviar.')+' Escribinos a soporte@gestumio.com.'; }
+    }catch(err){ m.className='msg err'; m.textContent='No se pudo enviar. Escribinos a soporte@gestumio.com o por WhatsApp.'; }
     btn.disabled=false; btn.textContent='Enviar solicitud';
   });
 }
