@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Botón de Baja — Gestumio</title>
+  <style>
+    :root { --primary:#1BA84C; --accent:#1E2A38; --bg:#F7F9F8; --ink:#1a1a1a; --ink-soft:#666; --border:#E3E8E6; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Segoe UI',Arial,sans-serif; background:var(--bg); color:var(--ink); line-height:1.7; }
+    nav { background:var(--primary); padding:16px 24px; display:flex; align-items:center; gap:12px; }
+    nav a { color:#fff; text-decoration:none; font-weight:700; font-size:20px; }
+    nav span { color:rgba(255,255,255,0.7); font-size:14px; margin-left:8px; }
+    .container { max-width:780px; margin:0 auto; padding:48px 24px 80px; }
+    h1 { font-size:28px; color:var(--primary); margin-bottom:8px; }
+    .meta { font-size:13px; color:var(--ink-soft); margin-bottom:32px; }
+    h2 { font-size:18px; color:var(--primary); margin:32px 0 12px; padding-bottom:6px; border-bottom:2px solid var(--border); }
+    p { margin-bottom:12px; font-size:15px; }
+    ul { margin:8px 0 12px 20px; font-size:15px; } ul li { margin-bottom:6px; }
+    a { color:var(--accent); }
+    .box { background:#fff; border:1px solid var(--border); border-radius:12px; padding:20px; margin:16px 0; }
+    label { display:block; font-weight:600; font-size:14px; margin:12px 0 4px; }
+    input, textarea { width:100%; padding:11px 12px; border:1px solid var(--border); border-radius:8px; font-size:15px; font-family:inherit; }
+    textarea { min-height:90px; resize:vertical; }
+    .btn { display:inline-block; margin-top:18px; background:var(--primary); color:#fff; border:none; border-radius:8px; padding:13px 24px; font-size:16px; font-weight:700; cursor:pointer; }
+    .btn:hover { filter:brightness(0.95); }
+    .msg { margin-top:14px; padding:12px; border-radius:8px; font-size:14px; display:none; }
+    .msg.ok { background:#e7f6ec; color:#0F8A3A; display:block; }
+    .msg.err { background:#fdeaea; color:#c0392b; display:block; }
+    .alt { font-size:14px; color:var(--ink-soft); }
+    footer { text-align:center; padding:24px; font-size:13px; color:var(--ink-soft); border-top:1px solid var(--border); }
+  </style>
+</head>
+<body>
+  <nav><a href="gestumio-landing.html">🌿 Gestumio</a><span>/ Botón de Baja</span></nav>
+  <div class="container">
+
+    <h1>Botón de Baja</h1>
+    <p class="meta">Baja de servicio — Disposición 954/2025</p>
+    <p>Podés solicitar la <strong>baja de tu suscripción a Gestumio</strong> en cualquier momento, de forma simple y sin trámites adicionales. Al recibir tu solicitud te enviaremos la confirmación por el mismo medio.</p>
+    <p>Completá el formulario y damos de baja el servicio. No necesitás registrarte previamente.</p>
+    
+    <div class="box">
+      <form id="frmBaja">
+        <label>Nombre y apellido *</label><input name="nombre" required />
+        <label>Email *</label><input name="email" type="email" required />
+        <label>Teléfono / WhatsApp</label><input name="telefono" />
+        <label>Detalle (qué servicio contrataste, fecha, y lo que quieras aclarar)</label><textarea name="detalle"></textarea>
+        <button class="btn" type="submit">Enviar solicitud</button>
+        <div id="msgBaja" class="msg"></div>
+      </form>
+    </div>
+    <p class="alt">También podés hacerlo escribiéndonos a <a href="mailto:contacto@gestumio.app">contacto@gestumio.app</a> o por WhatsApp al <a href="https://wa.me/5491100000000">+54 9 11 0000-0000 (a confirmar)</a>. No te pedimos ningún registro previo ni trámite adicional.</p>
+    
+<script>
+function submitLegal(tipo, formId, msgId){
+  var f=document.getElementById(formId), m=document.getElementById(msgId);
+  f.addEventListener('submit', async function(e){
+    e.preventDefault();
+    m.className='msg'; m.style.display='none';
+    var data={ nombre:f.nombre.value, email:f.email.value, telefono:f.telefono.value, detalle:f.detalle.value };
+    if(!data.nombre||!data.email){ m.className='msg err'; m.textContent='Completá al menos tu nombre y email.'; return; }
+    var btn=f.querySelector('button'); btn.disabled=true; btn.textContent='Enviando...';
+    try{
+      var r=await fetch('https://app.gestumio.com/api/legal/'+tipo,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+      var j=await r.json().catch(function(){return {};});
+      if(r.ok){ m.className='msg ok'; m.textContent='¡Listo! Recibimos tu solicitud y te vamos a contactar. También te enviamos una confirmación por email.'; f.reset(); }
+      else { m.className='msg err'; m.textContent=(j.error||'No se pudo enviar.')+' Escribinos a contacto@gestumio.app.'; }
+    }catch(err){ m.className='msg err'; m.textContent='No se pudo enviar. Escribinos a contacto@gestumio.app o por WhatsApp.'; }
+    btn.disabled=false; btn.textContent='Enviar solicitud';
+  });
+}
+</script>
+    <script>submitLegal('baja','frmBaja','msgBaja');</script>  </div>
+  <footer>© 2026 Gestumio &nbsp;·&nbsp; <a href="terminos.html">Términos</a> &nbsp;·&nbsp; <a href="privacidad.html">Privacidad</a> &nbsp;·&nbsp; <a href="atencion-consumidor.html">Atención al Consumidor</a></footer>
+</body>
+</html>
